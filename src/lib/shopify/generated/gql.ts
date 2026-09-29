@@ -14,9 +14,11 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
+    "query Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    availableForSale\n    images(first: 10) {\n      nodes {\n        url\n        altText\n        width\n        height\n      }\n    }\n    variants(first: 50) {\n      nodes {\n        id\n        title\n        availableForSale\n        price {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}": typeof types.ProductDocument,
     "query Products($first: Int!) {\n  products(first: $first) {\n    nodes {\n      id\n      handle\n      title\n      description\n      featuredImage {\n        url\n        altText\n        width\n        height\n      }\n      priceRange {\n        minVariantPrice {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}": typeof types.ProductsDocument,
 };
 const documents: Documents = {
+    "query Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    availableForSale\n    images(first: 10) {\n      nodes {\n        url\n        altText\n        width\n        height\n      }\n    }\n    variants(first: 50) {\n      nodes {\n        id\n        title\n        availableForSale\n        price {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}": types.ProductDocument,
     "query Products($first: Int!) {\n  products(first: $first) {\n    nodes {\n      id\n      handle\n      title\n      description\n      featuredImage {\n        url\n        altText\n        width\n        height\n      }\n      priceRange {\n        minVariantPrice {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}": types.ProductsDocument,
 };
 
@@ -34,6 +36,10 @@ const documents: Documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    availableForSale\n    images(first: 10) {\n      nodes {\n        url\n        altText\n        width\n        height\n      }\n    }\n    variants(first: 50) {\n      nodes {\n        id\n        title\n        availableForSale\n        price {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}"): (typeof documents)["query Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    availableForSale\n    images(first: 10) {\n      nodes {\n        url\n        altText\n        width\n        height\n      }\n    }\n    variants(first: 50) {\n      nodes {\n        id\n        title\n        availableForSale\n        price {\n          amount\n          currencyCode\n        }\n      }\n    }\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
